@@ -52,7 +52,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": [
+    "*.{ts,tsx}": [
       "eslint --ext .tsx --ext .ts src/ --fix"
     ],
   "./src/**": [
