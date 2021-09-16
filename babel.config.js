@@ -1,10 +1,16 @@
 module.exports = {
     presets: ['module:metro-react-native-babel-preset'],
+    env: {
+        production: {
+            plugins: ['react-native-paper/babel'],
+        },
+    },
     plugins: [
+        'react-native-reanimated/plugin',
         [
-            'module-resolver',
+            require.resolve('babel-plugin-module-resolver'),
             {
-                root: ['./app'],
+                cwd: 'babelrc',
                 extensions: [
                     '.ios.tsx',
                     '.android.tsx',
@@ -18,15 +24,10 @@ module.exports = {
                     '.png',
                 ],
                 alias: {
-                    '@assets': './app/assets',
+                    app: './app',
                 },
             },
         ],
-        'react-native-reanimated/plugin',
+        'jest-hoist',
     ],
-    env: {
-        production: {
-            plugins: ['react-native-paper/babel'],
-        },
-    },
 };
