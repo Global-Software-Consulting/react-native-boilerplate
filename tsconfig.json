@@ -50,7 +50,9 @@
       "app/services/*": ["./app/services/*"],
       "app/store/*": ["./app/store/*"],
       "app/utils/*": ["./app/utils/*"],
+      "app/languages/*"["./app/languages/*"]
     },
+    "resolveJsonModule": true,
      /* Base directory to resolve non-absolute module names. */
     // "paths": {},                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
