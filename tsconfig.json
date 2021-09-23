@@ -50,7 +50,7 @@
       "app/services/*": ["./app/services/*"],
       "app/store/*": ["./app/store/*"],
       "app/utils/*": ["./app/utils/*"],
-      "app/languages/*"["./app/languages/*"]
+      "app/languages/*": ["./app/languages/*"]
     },
     "resolveJsonModule": true,
      /* Base directory to resolve non-absolute module names. */
