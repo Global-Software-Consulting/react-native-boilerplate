@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">boilerplate</string>
+    <string name="app_name">dempApp</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">zRxlmHEFf8r-GAZhgSFl8-islutY1DzP2D02f</string>
 </resources>
