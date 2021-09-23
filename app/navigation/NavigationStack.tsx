@@ -1,13 +1,12 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { LoginState } from 'app/models/reducers/login';
 import ForgotPassword from 'app/screens/ForgotPassword';
 import Home from 'app/screens/Home';
 import Login from 'app/screens/Login';
 import * as React from 'react';
 import { StatusBar } from 'react-native';
 import { useSelector } from 'react-redux';
-
+import { RootState } from 'app/store/slice/';
 import ThemeController from '../components/ThemeController';
 import { navigationRef } from './NavigationService';
 
@@ -19,12 +18,8 @@ const homeOptions = {
     headerRight: () => <ThemeController />,
 };
 
-interface IState {
-    loginReducer: LoginState;
-}
-
 const AuthNavigator = () => {
-    const isLoggedIn = useSelector((state: IState) => state.loginReducer.isLoggedIn);
+    const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
     return (
         <AuthStack.Navigator>
             <Stack.Screen
@@ -58,7 +53,7 @@ const LoggedInNavigator = () => (
 );
 
 const App: React.FC = () => {
-    const isLoggedIn = useSelector((state: IState) => state.loginReducer.isLoggedIn);
+    const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
     return (
         <NavigationContainer ref={navigationRef}>

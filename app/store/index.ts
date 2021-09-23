@@ -1,18 +1,16 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import rootReducers from 'app/store/reducers';
+import rootReducers from 'app/store/slice';
 import sagas from 'app/store/sagas';
-import { applyMiddleware, compose, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
-import { persistCombineReducers, persistStore } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
-
+import { configureStore } from '@reduxjs/toolkit';
 const config = {
     key: 'root',
     storage: AsyncStorage,
-    blacklist: ['loadingReducer'],
+    blacklist: ['loading'],
     debug: true, //to get useful logging
 };
-
+import { persistStore, persistReducer } from 'redux-persist';
 const middleware = [];
 const sagaMiddleware = createSagaMiddleware();
 
@@ -22,18 +20,14 @@ if (__DEV__) {
     middleware.push(createLogger());
 }
 
-const reducers = persistCombineReducers(config, rootReducers);
-const enhancers = [applyMiddleware(...middleware)];
-// const initialState = {};
+const reducers = persistReducer(config, rootReducers);
+const enhancers = [...middleware];
 const persistConfig: any = { enhancers };
-const store = createStore(reducers, undefined, compose(...enhancers));
-const persistor = persistStore(store, persistConfig, () => {
-    //   console.log('Test', store.getState());
+
+export const store = configureStore({
+    reducer: reducers,
+    middleware: enhancers,
 });
-const configureStore = () => {
-    return { persistor, store };
-};
 
 sagaMiddleware.run(sagas);
-
-export default configureStore;
+export const persistor = persistStore(store, persistConfig);

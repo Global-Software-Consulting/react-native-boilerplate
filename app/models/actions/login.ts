@@ -10,5 +10,5 @@ interface IResponse {
 
 export interface LoginResponseState {
     type: string;
-    response: IResponse;
+    payload: IResponse;
 }

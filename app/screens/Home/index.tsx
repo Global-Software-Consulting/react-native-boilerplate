@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Button } from 'react-native-paper';
 
 import { useDispatch } from 'react-redux';
-import * as loginActions from 'app/store/actions/loginActions';
+import * as loginActions from 'app/store/slice/userSlice';
 import { useStyle } from './styles';
 const Home: React.FC = () => {
     const dispatch = useDispatch();

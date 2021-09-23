@@ -4,16 +4,11 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useDispatch, useSelector } from 'react-redux';
 import { Switch } from 'react-native-paper';
 
-import * as themeActions from 'app/store/actions/themeActions';
-import { ThemeState } from 'app/models/reducers/theme';
-
-interface IState {
-    themeReducer: ThemeState;
-}
+import * as themeActions from 'app/store/slice/themeSlice';
+import { RootState } from 'app/store/slice';
 
 const ThemeController: React.FC = () => {
-    const isDark = useSelector((state: IState) => state.themeReducer.isDark);
-
+    const isDark = useSelector((state: RootState) => state.theme.isDark);
     const dispatch = useDispatch();
     const onToggleTheme = () => dispatch(themeActions.setIsDarkTheme(!isDark));
     const iconName = isDark ? 'weather-night' : 'white-balance-sunny';

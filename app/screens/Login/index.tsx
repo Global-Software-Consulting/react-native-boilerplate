@@ -5,15 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import * as loginActions from 'app/store/actions/loginActions';
 import { useStyle } from './styles';
-import { LoginState } from 'app/models/reducers/login';
-import NavigationService from 'app/navigation/NavigationService';
 
-interface IState {
-    loginReducer: LoginState;
-}
+import NavigationService from 'app/navigation/NavigationService';
+import { RootState } from 'app/store/slice/';
 
 const Login: React.FC = () => {
-    const id = useSelector((state: IState) => state.loginReducer.id);
+    const id = useSelector((state: RootState) => state.user.id);
     const dispatch = useDispatch();
     const styles = useStyle();
     const onLogin = () => dispatch(loginActions.requestLogin('test', '1234'));
