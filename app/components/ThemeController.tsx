@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Switch } from 'react-native-paper';
 
 import * as themeActions from 'app/store/actions/themeActions';
-import { IThemeState } from 'app/models/reducers/theme';
+import { ThemeState } from 'app/models/reducers/theme';
 
 interface IState {
-    themeReducer: IThemeState;
+    themeReducer: ThemeState;
 }
 
 const ThemeController: React.FC = () => {

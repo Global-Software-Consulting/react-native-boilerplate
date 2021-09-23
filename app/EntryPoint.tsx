@@ -3,7 +3,7 @@
  * Everything starts from the Entry-point
  */
 
-import { IThemeState } from 'app/models/reducers/theme';
+import { ThemeState } from 'app/models/reducers/theme';
 import Navigator from 'app/navigation';
 import configureStore from 'app/store';
 import React from 'react';
@@ -11,13 +11,12 @@ import { ActivityIndicator } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { Provider, useSelector } from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
-import DarkTheme from 'app/theme/DarkTheme';
-import DefaultTheme from 'app/theme/DefaultTheme';
-import 'app/theme/types';
+import DarkTheme from './theme/DarkTheme';
+import DefaultTheme from './theme/DefaultTheme';
 const { persistor, store } = configureStore();
 
 interface IState {
-    themeReducer: IThemeState;
+    themeReducer: ThemeState;
 }
 
 const RootNavigation: React.FC = () => {

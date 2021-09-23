@@ -1,6 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ILoginState } from 'app/models/reducers/login';
+import { LoginState } from 'app/models/reducers/login';
 import ForgotPassword from 'app/screens/ForgotPassword';
 import Home from 'app/screens/Home';
 import Login from 'app/screens/Login';
@@ -22,7 +22,7 @@ const homeOptions = {
 };
 
 interface IState {
-    loginReducer: ILoginState;
+    loginReducer: LoginState;
 }
 
 const AuthNavigator = () => {
@@ -66,10 +66,10 @@ const App: React.FC = () => {
 
             <Stack.Navigator screenOptions={{ headerShown: false }}>
                 {isLoggedIn ? (
-                    <Stack.Screen name="Home" component={LoggedInNavigator} options={homeOptions} />
+                    <Stack.Screen name="Main" component={LoggedInNavigator} options={homeOptions} />
                 ) : (
                     <Stack.Screen
-                        name="Login"
+                        name="Auth"
                         component={AuthNavigator}
                         options={{
                             // When logging out, a pop animation feels intuitive
