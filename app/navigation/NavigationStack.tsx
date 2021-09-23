@@ -1,4 +1,4 @@
-import { NavigationContainer, Theme } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ILoginState } from 'app/models/reducers/login';
 import ForgotPassword from 'app/screens/ForgotPassword';
@@ -17,18 +17,12 @@ const LoggedInStack = createNativeStackNavigator();
 
 const homeOptions = {
     title: 'Home',
-    headerTitleStyle: {
-        fontWeight: 'bold',
-    },
+
     headerRight: () => <ThemeController />,
 };
 
 interface IState {
     loginReducer: ILoginState;
-}
-
-interface IProps {
-    theme: Theme;
 }
 
 const AuthNavigator = () => {
@@ -63,13 +57,12 @@ const LoggedInNavigator = () => (
     </LoggedInStack.Navigator>
 );
 
-const App: React.FC<IProps> = (props: IProps) => {
-    const { theme } = props;
+const App: React.FC = () => {
     const isLoggedIn = useSelector((state: IState) => state.loginReducer.isLoggedIn);
 
     return (
-        <NavigationContainer ref={navigationRef} theme={theme}>
-            <StatusBar barStyle={theme.dark ? 'light-content' : 'dark-content'} />
+        <NavigationContainer ref={navigationRef}>
+            <StatusBar />
 
             <Stack.Navigator screenOptions={{ headerShown: false }}>
                 {isLoggedIn ? (
