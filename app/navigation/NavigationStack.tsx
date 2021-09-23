@@ -16,8 +16,6 @@ const AuthStack = createNativeStackNavigator();
 const LoggedInStack = createNativeStackNavigator();
 
 const homeOptions = {
-    title: 'Home',
-
     headerRight: () => <ThemeController />,
 };
 
@@ -28,14 +26,16 @@ interface IState {
 const AuthNavigator = () => {
     const isLoggedIn = useSelector((state: IState) => state.loginReducer.isLoggedIn);
     return (
-        <AuthStack.Navigator screenOptions={{ headerShown: false }}>
+        <AuthStack.Navigator>
             <Stack.Screen
                 name="Login"
+                screenOptions={homeOptions}
                 component={Login}
                 options={{
                     // When logging out, a pop animation feels intuitive
                     // You can remove this if you want the default 'push' animation
                     animationTypeForReplace: isLoggedIn ? 'push' : 'pop',
+                    headerRight: (props) => <ThemeController {...props} />,
                 }}
             />
             <Stack.Screen
@@ -64,22 +64,7 @@ const App: React.FC = () => {
         <NavigationContainer ref={navigationRef}>
             <StatusBar />
 
-            <Stack.Navigator screenOptions={{ headerShown: false }}>
-                {isLoggedIn ? (
-                    <Stack.Screen name="Main" component={LoggedInNavigator} options={homeOptions} />
-                ) : (
-                    <Stack.Screen
-                        name="Auth"
-                        component={AuthNavigator}
-                        options={{
-                            // When logging out, a pop animation feels intuitive
-                            // You can remove this if you want the default 'push' animation
-                            animationTypeForReplace: isLoggedIn ? 'push' : 'pop',
-                            headerRight: () => <ThemeController />,
-                        }}
-                    />
-                )}
-            </Stack.Navigator>
+            {isLoggedIn ? <LoggedInNavigator /> : <AuthNavigator />}
         </NavigationContainer>
     );
 };
