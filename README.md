@@ -1,4 +1,11 @@
 # React-Native-Boilerplate
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/88474289/137731213-0b341804-08f1-4f29-b73f-45a4a80627d8.png" width="350" title="hover text">
+    <img src="(https://user-images.githubusercontent.com/88474289/137731230-f1b04256-85ed-4057-a4e6-779d5be6fc6e.png" width="350" title="hover text">
+
+</p>
+
 React native boiler plate by Global soft consulting provides opportunity to developers to quick start without wasting time on setting up basic stuff and configurations. This way, developers can save time and work more efficiently. Not only this, but typescript intergration along with lint and husky keeps the code clean; hence increasing quality of work. Given below are some of the major features of this boilerplate. 
 
 ## Key Features
