@@ -3,6 +3,7 @@ React native boiler plate by Global soft consulting provides opportunity to deve
 
 ## Key Features
  * Global themeing with light & dark modes
+ * Splash screen.
  * React navigation 6
  * Multiple language support.
  * React native configuration.
