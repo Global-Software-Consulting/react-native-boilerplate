@@ -1,6 +1,7 @@
 # React-Native-Boilerplate
+React native boiler plate by Global soft consulting provides opportunity to developers to quick start without wasting time on setting up basic stuff and configurations. This way, developers can save time and work more efficiently. Not only this, but typescript intergration along with lint and husky keeps the code clean; hence increasing quality of work. Given below are some of the major features of this boilerplate. 
 
-## Key Feature
+## Key Features
  * Global themeing with light & dark modes
  * React navigation 6
  * Multiple language support.
@@ -29,25 +30,28 @@
 
 ## ▶ How to Setup
 
-#### Step 1: git clone this repo.
+##### Step 1: Clone the repository. 
 
-#### Step 2: cd to the cloned repo.
+##### Step 2: Move to the cloned directory.
 
-#### Step 3: Rename the project bundleId, package name and application name.
+##### Step 3: Rename the project bundleId, package name and application name.
 
-#### Step 4: Install the npm modules required for the project with npm i
+##### Step 4: Install the npm modules required for the project with npm i or yarn.
+
+##### And you are good to go!
 
 ## ▶ How to Run App
-
 ```
 cd react-native-boilerplate
 yarn or npm install
-Run Build for either OS
-for iOS
-run npm run ios
-for Android
-run npm run android
-
+```
+###### For iOS
+```
+npm run ios
+```
+###### For Android
+```
+npm run android
 ```
 
 [How to Change Code Push App Center Account](https://dev.to/karanpratapsingh/update-your-react-native-apps-seamlessly-using-microsoft-s-codepush-f61)
