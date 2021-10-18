@@ -14,14 +14,24 @@ export const useStyle = () => {
                 alignItems: 'center',
                 backgroundColor: colors.background,
             },
+            subContainer: {
+                backgroundColor: colors.background,
+                borderRadius: 20,
+                alignItems: 'center',
+                borderWidth: 2,
+                padding: 20,
+                borderColor: isDark ? 'teal' : 'black',
+            },
             login: {
                 padding: 8,
             },
             forgot: {
-                marginTop: 12,
+                marginTop: 5,
             },
             labelStyle: {
-                fontSize: 12,
+                padding: 10,
+                fontSize: 15,
+                color: isDark ? 'teal' : 'black',
             },
         });
     return React.useMemo(() => styles(), [isDark]);

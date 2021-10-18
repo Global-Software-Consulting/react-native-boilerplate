@@ -1,34 +1,24 @@
-import React from 'react';
-import { View } from 'react-native';
-import { Text, Button } from 'react-native-paper';
-import { useDispatch, useSelector } from 'react-redux';
-
+import StdButton from 'app/components/StandardButton/index';
+import NavigationService from 'app/navigation/NavigationService';
 import * as loginActions from 'app/store/actions/loginActions';
+import React from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
+import { useDispatch } from 'react-redux';
 import { useStyle } from './styles';
 
-import NavigationService from 'app/navigation/NavigationService';
-import { RootState } from 'app/store/slice/';
-
 const Login: React.FC = () => {
-    const id = useSelector((state: RootState) => state.user.id);
+    // const id = useSelector((state: RootState) => state.user.id);
     const dispatch = useDispatch();
     const styles = useStyle();
     const onLogin = () => dispatch(loginActions.requestLogin('test', '1234'));
     const onForgot = () => NavigationService.navigate('ForgotPassword');
     return (
         <View style={styles.container}>
-            <View style={styles.container}>
-                <Text style={styles.login}>Login Status : {id}</Text>
-                <Button icon="login" mode="outlined" onPress={onLogin}>
-                    Login
-                </Button>
-                <Button
-                    mode="text"
-                    style={styles.forgot}
-                    labelStyle={styles.labelStyle}
-                    onPress={onForgot}>
-                    Forgot Password
-                </Button>
+            <View style={styles.subContainer}>
+                <StdButton title="Login" onPress={onLogin} />
+                <TouchableOpacity style={styles.forgot} onPress={onForgot}>
+                    <Text style={styles.labelStyle}> Forgot Password</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
