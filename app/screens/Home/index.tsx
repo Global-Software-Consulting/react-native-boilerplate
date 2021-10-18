@@ -4,14 +4,20 @@ import React from 'react';
 import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useStyle } from './styles';
-
+import { useTheme } from 'react-native-paper';
 const Home: React.FC = () => {
     const dispatch = useDispatch();
+    const theme = useTheme();
     const onLogout = () => dispatch(loginActions.logOut());
     const styles = useStyle();
     return (
         <View style={styles.container}>
-            <StdButton title="Log out" onPress={onLogout} />
+            <StdButton
+                title="Log out"
+                onPress={onLogout}
+                icon="logout"
+                iconColor={theme.colors.background === 'white' ? 'white' : 'black'}
+            />
         </View>
     );
 };

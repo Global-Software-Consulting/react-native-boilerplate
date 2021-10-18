@@ -10,9 +10,13 @@ export const useStyle = () => {
         StyleSheet.create({
             view: {
                 backgroundColor: 'teal',
+                alignItems: 'center',
+                justifyContent: 'center',
                 padding: 15,
                 borderRadius: 15,
+                flexDirection: 'row',
             },
+            icon: { paddingRight: 10 },
             text: {
                 color: theme.colors.background,
             },

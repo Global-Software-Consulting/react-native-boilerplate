@@ -5,17 +5,23 @@ import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useStyle } from './styles';
-
+import { useTheme } from 'react-native-paper';
 const Login: React.FC = () => {
     // const id = useSelector((state: RootState) => state.user.id);
     const dispatch = useDispatch();
     const styles = useStyle();
+    const theme = useTheme();
     const onLogin = () => dispatch(loginActions.requestLogin('test', '1234'));
     const onForgot = () => NavigationService.navigate('ForgotPassword');
     return (
         <View style={styles.container}>
             <View style={styles.subContainer}>
-                <StdButton title="Login" onPress={onLogin} />
+                <StdButton
+                    title="Login"
+                    onPress={onLogin}
+                    icon="login"
+                    iconColor={theme.colors.background === 'white' ? 'white' : 'black'}
+                />
                 <TouchableOpacity style={styles.forgot} onPress={onForgot}>
                     <Text style={styles.labelStyle}> Forgot Password</Text>
                 </TouchableOpacity>
