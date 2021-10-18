@@ -1,3 +1,2 @@
-BUILD = "production"
-CodePushDeploymentKey="CodePushDeploymentKey"
-CodePushDeploymentIOSKey="CodePushDeploymentIOSKey"
+APP_NAME = boilerplate
+CodePushDeploymentKey = CodePushDeploymentKey
