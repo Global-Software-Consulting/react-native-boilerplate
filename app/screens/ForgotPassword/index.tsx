@@ -1,8 +1,8 @@
 import StdButton from 'app/components/StandardButton';
 import NavigationService from 'app/navigation/NavigationService';
-import { useTheme } from 'react-native-paper';
 import React from 'react';
 import { View } from 'react-native';
+import { useTheme } from 'react-native-paper';
 import { useStyle } from './styles';
 
 const Home: React.FC = () => {

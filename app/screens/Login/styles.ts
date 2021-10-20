@@ -1,8 +1,8 @@
+import { RootState } from 'app/store/slice';
+import React from 'react';
 import { StyleSheet } from 'react-native';
 import { useTheme } from 'react-native-paper';
-import React, { ReducerState } from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from 'app/store/slice';
 export const useStyle = () => {
     const { colors } = useTheme();
     const isDark = useSelector((state:RootState) => state.theme.isDark);
