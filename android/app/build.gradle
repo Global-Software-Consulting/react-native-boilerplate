@@ -83,6 +83,7 @@ project.ext.react = [
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 /**
@@ -136,6 +137,8 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        resValue 'string', "CODE_PUSH_APK_BUILD_TIME", String.format("\"%d\"", System.currentTimeMillis())
+
     }
     splits {
         abi {
@@ -152,15 +155,38 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        releaseStaging {
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+        release {
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
     }
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+            resValue "string", "CodePushDeploymentKey", project.env.get("CodePushDeploymentKeyAndroid")
+
         }
+        releaseStaging {
+            resValue "string", "CodePushDeploymentKey", project.env.get("CodePushDeploymentKeyAndroid")
+
+            // Note: It is a good idea to provide matchingFallbacks for the new buildType you create to prevent build issues
+            // Add the following line if not already there
+            matchingFallbacks = ['release']
+        }
+
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
-            resValue "string", "CodePushDeploymentKey", project.env.get("CodePushDeploymentKey")
+      
+            resValue "string", "CodePushDeploymentKey", project.env.get("CodePushDeploymentKeyAndroid")
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
@@ -196,7 +222,6 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
-
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
       exclude group:'com.facebook.fbjni'
     }
