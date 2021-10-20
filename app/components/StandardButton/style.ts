@@ -1,25 +1,24 @@
 import { StyleSheet } from 'react-native';
-import { RootState } from 'app/store/slice';
 import { useTheme } from 'react-native-paper';
 import React from 'react';
 import { useSelector } from 'react-redux';
-
+import { RootState } from 'app/store/slice';
 export const useStyle = () => {
-    const { colors } = useTheme();
+    const theme = useTheme();
     const isDark = useSelector((state: RootState) => state.theme.isDark);
-    console.log('isDarkisDark', isDark);
-
     const styles = () =>
         StyleSheet.create({
-            container: {
-                flex: 1,
-                justifyContent: 'center',
+            view: {
+                backgroundColor: 'teal',
                 alignItems: 'center',
-                backgroundColor: isDark ? 'black' : 'white',
+                justifyContent: 'center',
+                padding: 15,
+                borderRadius: 15,
+                flexDirection: 'row',
             },
-            title: {
-                fontWeight: 'bold',
-                color: colors.primary,
+            icon: { paddingRight: 10 },
+            text: {
+                color: theme.colors.primary,
             },
         });
     return React.useMemo(() => styles(), [isDark]);

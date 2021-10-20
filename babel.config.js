@@ -6,7 +6,6 @@ module.exports = {
         },
     },
     plugins: [
-        'react-native-reanimated/plugin',
         [
             require.resolve('babel-plugin-module-resolver'),
             {

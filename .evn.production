@@ -1,3 +1,0 @@
-BUILD = "production"
-CodePushDeploymentKey="CodePushDeploymentKey"
-CodePushDeploymentIOSKey="CodePushDeploymentIOSKey"
