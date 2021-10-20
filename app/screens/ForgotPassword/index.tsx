@@ -4,15 +4,17 @@ import React from 'react';
 import { View } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import { useStyle } from './styles';
+import { useTranslation } from 'react-i18next';
 
-const Home: React.FC = () => {
+const ForgotPassword: React.FC = () => {
     const goBack = () => NavigationService.goBack();
+    const { t } = useTranslation();
     const theme = useTheme();
     const styles = useStyle();
     return (
         <View style={styles.container}>
             <StdButton
-                title="Navigate Back"
+                title={t('Back')}
                 onPress={goBack}
                 icon="keyboard-backspace"
                 iconColor={theme.colors.background === 'white' ? 'white' : 'black'}
@@ -21,4 +23,4 @@ const Home: React.FC = () => {
     );
 };
 
-export default Home;
+export default ForgotPassword;

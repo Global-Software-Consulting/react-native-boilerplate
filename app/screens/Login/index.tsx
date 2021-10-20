@@ -6,8 +6,12 @@ import { Animated, Easing, Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
 import { useStyle } from './styles';
+import { useTranslation } from 'react-i18next';
+import { ScrollView } from 'react-native-gesture-handler';
+
 const Login: React.FC = () => {
     // const id = useSelector((state: RootState) => state.user.id);
+    const { t } = useTranslation();
     const dispatch = useDispatch();
     const styles = useStyle();
     const theme = useTheme();
@@ -40,30 +44,38 @@ const Login: React.FC = () => {
 
     return (
         <View style={styles.container}>
-            <Animated.Image
-                source={require('app/assets/react-native.png')}
-                style={{ transform: [{ rotate: rotationValue }] }}
-            />
-            <Animated.Text
-                style={{
-                    fontSize: 20,
-                    color: 'teal',
-                    fontWeight: 'bold',
-                    opacity: opacityValue,
+            <ScrollView
+                contentContainerStyle={{
+                    flex: 1,
+                    backgroundColor: theme.colors.accent,
+                    justifyContent: 'center',
+                    alignItems: 'center',
                 }}>
-                GSoft Boiler Plate
-            </Animated.Text>
-            <View style={styles.subContainer}>
-                <StdButton
-                    title="Login"
-                    onPress={onLogin}
-                    icon="login"
-                    iconColor={theme.colors.background === 'white' ? 'white' : 'black'}
+                <Animated.Image
+                    source={require('app/assets/react-native.png')}
+                    style={{ transform: [{ rotate: rotationValue }] }}
                 />
-                <TouchableOpacity style={styles.forgot} onPress={onForgot}>
-                    <Text style={styles.labelStyle}> Forgot Password</Text>
-                </TouchableOpacity>
-            </View>
+                <Animated.Text
+                    style={{
+                        fontSize: 20,
+                        color: 'teal',
+                        fontWeight: 'bold',
+                        opacity: opacityValue,
+                    }}>
+                    {t('GSoft Boiler Plate')}
+                </Animated.Text>
+                <View style={styles.subContainer}>
+                    <StdButton
+                        title={t('Login')}
+                        onPress={onLogin}
+                        icon="login"
+                        iconColor={theme.colors.background === 'white' ? 'white' : 'black'}
+                    />
+                    <TouchableOpacity style={styles.forgot} onPress={onForgot}>
+                        <Text style={styles.labelStyle}>{t('Forgot Password')}</Text>
+                    </TouchableOpacity>
+                </View>
+            </ScrollView>
         </View>
     );
 };

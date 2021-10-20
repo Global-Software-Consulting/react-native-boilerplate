@@ -14,7 +14,7 @@ export const useStyle = () => {
                 flex: 1,
                 justifyContent: 'center',
                 alignItems: 'center',
-                backgroundColor: colors.background,
+                backgroundColor: colors.accent,
             },
         });
     return React.useMemo(() => styles(), [isDark]);

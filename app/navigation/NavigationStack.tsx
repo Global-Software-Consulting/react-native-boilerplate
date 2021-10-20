@@ -52,7 +52,7 @@ const AuthNavigator = () => {
                 }}
             />
             <Stack.Screen
-                name={t('ForgotPassword')}
+                name="ForgotPassword"
                 component={ForgotPassword}
                 options={{
                     // When logging out, a pop animation feels intuitive
@@ -77,6 +77,7 @@ const LoggedInNavigator = () => {
                 name={t('Home')}
                 component={BottomTabNavigation}
                 options={{
+                    drawerLabel: 'Gsoft Boiler Plate',
                     headerStyle: {
                         backgroundColor: theme.colors.accent, //Set Header color
                     },
