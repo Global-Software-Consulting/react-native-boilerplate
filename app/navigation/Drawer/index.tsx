@@ -8,7 +8,6 @@ import { useDispatch } from 'react-redux';
 import * as loginActions from 'app/store/slice/userSlice';
 import { useStyle } from './styles';
 import { useTranslation } from 'react-i18next';
-import StdButton from 'app/components/StandardButton';
 import { useTheme } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 // import i18n from "../../components/Languages/i18n";
@@ -46,7 +45,7 @@ const Drawer: React.FC = (props) => {
                     onPress={() => {
                         navigation.navigate('Home');
                     }}
-                    label="Home"
+                    label={t('Home')}
                     activeTintColor="#2196f3"
                     activeBackgroundColor="rgba(0, 0, 0, .04)"
                     inactiveTintColor="rgba(0, 0, 0, .87)"
@@ -61,7 +60,7 @@ const Drawer: React.FC = (props) => {
                             size={size}
                         />
                     )}
-                    label="Profile"
+                    label={t('Profile')}
                     activeTintColor="#2196f3"
                     activeBackgroundColor="rgba(0, 0, 0, .04)"
                     inactiveTintColor="rgba(0, 0, 0, .87)"
@@ -83,7 +82,7 @@ const Drawer: React.FC = (props) => {
                     onPress={() => {
                         navigation.navigate('Chat');
                     }}
-                    label="Chat"
+                    label={t('Chat')}
                     activeTintColor="#2196f3"
                     inactiveTintColor="white"
                     inactiveBackgroundColor="transparent"
@@ -149,12 +148,23 @@ const Drawer: React.FC = (props) => {
                         <Text style={styles.chekboxtext}>German</Text>
                     </TouchableOpacity>
                 </List.Accordion>
-
-                <StdButton
-                    title="Log out"
-                    onPress={onLogout}
-                    icon="logout"
-                    iconColor={theme.colors.background === 'white' ? 'white' : 'black'}
+                <DrawerItem
+                    icon={({ size }) => (
+                        <MaterialCommunityIcons
+                            name="logout"
+                            color={theme.colors.primary}
+                            size={size}
+                        />
+                    )}
+                    onPress={() => {
+                        onLogout();
+                    }}
+                    label={t('Logout')}
+                    activeTintColor="#2196f3"
+                    activeBackgroundColor="rgba(0, 0, 0, .04)"
+                    inactiveTintColor="rgba(0, 0, 0, .87)"
+                    inactiveBackgroundColor="transparent"
+                    labelStyle={{ color: theme.colors.primary }}
                 />
             </DrawerContentScrollView>
         </View>

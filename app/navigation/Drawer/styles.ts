@@ -75,7 +75,7 @@ export const useStyle = () => {
                 paddingHorizontal: 16,
             },
             button: {
-                backgroundColor: '#f8f8ff',
+                // backgroundColor: '#f8f8ff',
                 padding: 10,
                 borderRadius: 10,
                 margin: 10,

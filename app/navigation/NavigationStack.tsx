@@ -11,6 +11,7 @@ import { navigationRef } from './NavigationService';
 import BottomTabNavigation from './BottomTabNavigation';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useTheme } from 'react-native-paper';
+import { useTranslation } from 'react-i18next';
 
 import Drawer from './Drawer';
 const Stack = createNativeStackNavigator();
@@ -22,6 +23,7 @@ const homeOptions = {
 };
 
 const AuthNavigator = () => {
+    const { t } = useTranslation();
     const theme = useTheme();
     const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
     return (
@@ -36,7 +38,7 @@ const AuthNavigator = () => {
                 },
             }}>
             <Stack.Screen
-                name="Login"
+                name={t('Login')}
                 screenOptions={homeOptions}
                 component={Login}
                 options={{
@@ -50,7 +52,7 @@ const AuthNavigator = () => {
                 }}
             />
             <Stack.Screen
-                name="ForgotPassword"
+                name={t('ForgotPassword')}
                 component={ForgotPassword}
                 options={{
                     // When logging out, a pop animation feels intuitive
@@ -67,10 +69,12 @@ const AuthNavigator = () => {
 
 const LoggedInNavigator = () => {
     const theme = useTheme();
+    const { t } = useTranslation();
+
     return (
         <AppDrawer.Navigator drawerContent={() => <Drawer />}>
             <AppDrawer.Screen
-                name="Home"
+                name={t('Home')}
                 component={BottomTabNavigation}
                 options={{
                     headerStyle: {

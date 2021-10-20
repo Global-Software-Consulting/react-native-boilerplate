@@ -18,7 +18,7 @@ export const useStyle = () => {
             },
             icon: { paddingRight: 10 },
             text: {
-                color: theme.colors.background,
+                color: theme.colors.primary,
             },
         });
     return React.useMemo(() => styles(), [isDark]);
