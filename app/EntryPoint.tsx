@@ -3,18 +3,19 @@
  * Everything starts from the Entry-point
  */
 
-import { useEffect } from 'react';
 import Navigator from 'app/navigation';
 import { persistor, store } from 'app/store';
-import React from 'react';
+import { RootState } from 'app/store/slice';
+import React, { useEffect } from 'react';
 import { ActivityIndicator } from 'react-native';
+import codePush from 'react-native-code-push';
 import { Provider as PaperProvider } from 'react-native-paper';
+import SplashScreen from 'react-native-splash-screen';
 import { Provider, useSelector } from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
 import DarkTheme from './theme/DarkTheme';
 import DefaultTheme from './theme/DefaultTheme';
-import SplashScreen from 'react-native-splash-screen';
-import { RootState } from 'app/store/slice';
+
 const RootNavigation: React.FC = () => {
     const isDark = useSelector((state: RootState) => state.theme.isDark);
     const theme = isDark ? DarkTheme : DefaultTheme;
@@ -27,8 +28,16 @@ const RootNavigation: React.FC = () => {
         </PaperProvider>
     );
 };
+const codePushOptions = {
+    updateDialog: true,
+    installMode: codePush.InstallMode.IMMEDIATE,
+};
 
 const EntryPoint: React.FC = () => {
+    useEffect(() => {
+        codePush.sync({ installMode: codePush.InstallMode.IMMEDIATE });
+    });
+
     return (
         <Provider store={store}>
             <PersistGate loading={<ActivityIndicator />} persistor={persistor}>
@@ -37,5 +46,4 @@ const EntryPoint: React.FC = () => {
         </Provider>
     );
 };
-
-export default EntryPoint;
+export default codePush(codePushOptions)(EntryPoint);
