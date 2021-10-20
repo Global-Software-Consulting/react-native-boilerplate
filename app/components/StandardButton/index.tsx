@@ -1,14 +1,13 @@
 import React from 'react';
-import { Image, Text } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Image, Text, Pressable } from 'react-native';
 import { ActivityIndicator } from 'react-native-paper';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useStyle } from './style';
 import { Props } from './types';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 const StdButton: React.FC<Props> = (props) => {
     const styles = useStyle();
     return (
-        <TouchableOpacity style={styles.view} onPress={props.onPress}>
+        <Pressable style={styles.view} onPress={props.onPress}>
             {props.icon && (
                 <Icon
                     style={styles.icon}
@@ -20,7 +19,7 @@ const StdButton: React.FC<Props> = (props) => {
             {props.image && <Image source={props.image} />}
             <Text style={styles.text}>{props.title}</Text>
             {props.withActivityIndicator && <ActivityIndicator />}
-        </TouchableOpacity>
+        </Pressable>
     );
 };
 export default StdButton;
