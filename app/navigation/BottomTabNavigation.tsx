@@ -5,11 +5,20 @@ import Profile from '../screens/Profile';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { useTheme } from 'react-native-paper';
 
 const Tab = createBottomTabNavigator();
 const BottomTabNavigation = () => {
+    const theme = useTheme();
+
     return (
-        <Tab.Navigator>
+        <Tab.Navigator
+            screenOptions={{
+                tabBarActiveTintColor: '#e91e63',
+                tabBarStyle: {
+                    backgroundColor: theme.colors.accent,
+                },
+            }}>
             <Tab.Screen
                 name="Home"
                 component={Home}
@@ -19,6 +28,7 @@ const BottomTabNavigation = () => {
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="home" color={color} size={size} />
                     ),
+                    headerStyle: { backgroundColor: theme.colors.primary },
                 }}
             />
             <Tab.Screen
@@ -27,6 +37,7 @@ const BottomTabNavigation = () => {
                 options={{
                     tabBarLabel: 'Chat',
                     headerShown: false,
+                    headerStyle: { backgroundColor: theme.colors.primary },
                     tabBarIcon: ({ color, size }) => (
                         <MaterialCommunityIcons name="chat" color={color} size={size} />
                     ),
@@ -42,6 +53,7 @@ const BottomTabNavigation = () => {
                     tabBarIcon: ({ color, size }) => (
                         <Ionicons name="person-circle-outline" color={color} size={size} />
                     ),
+                    headerStyle: { backgroundColor: theme.colors.primary },
                 }}
             />
         </Tab.Navigator>
