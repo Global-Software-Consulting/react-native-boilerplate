@@ -1,7 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ForgotPassword from 'app/screens/ForgotPassword';
-import Home from 'app/screens/Home';
 import Login from 'app/screens/Login';
 import * as React from 'react';
 import { StatusBar } from 'react-native';
@@ -9,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'app/store/slice/';
 import ThemeController from '../components/ThemeController';
 import { navigationRef } from './NavigationService';
+import BottomTabNavigation from './BottomTabNavigation';
 
 const Stack = createNativeStackNavigator();
 const AuthStack = createNativeStackNavigator();
@@ -48,7 +48,7 @@ const AuthNavigator = () => {
 
 const LoggedInNavigator = () => (
     <LoggedInStack.Navigator>
-        <Stack.Screen name="Home" component={Home} options={homeOptions} />
+        <Stack.Screen name="Home" component={BottomTabNavigation} options={homeOptions} />
     </LoggedInStack.Navigator>
 );
 

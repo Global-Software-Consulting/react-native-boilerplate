@@ -1,7 +1,7 @@
 import StdButton from 'app/components/StandardButton/index';
 import NavigationService from 'app/navigation/NavigationService';
 import * as loginActions from 'app/store/actions/loginActions';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Animated, Easing, Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
