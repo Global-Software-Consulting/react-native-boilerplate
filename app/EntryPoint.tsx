@@ -29,7 +29,7 @@ const RootNavigation: React.FC = () => {
     );
 };
 const codePushOptions = {
-    updateDialog: true,
+    updateDialog: false,
     installMode: codePush.InstallMode.IMMEDIATE,
 };
 
