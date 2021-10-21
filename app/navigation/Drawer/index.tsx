@@ -128,8 +128,10 @@ const Drawer: React.FC = (props) => {
                         onPress={() => {
                             setChecked('second');
                             i18n.changeLanguage('es').then(() => {
-                                I18nManager.forceRTL(true);
-                                RNRestart.Restart();
+                                if (I18nManager.isRTL === false) {
+                                    I18nManager.forceRTL(true);
+                                    RNRestart.Restart();
+                                }
                             });
                         }} //Here I change the language to "es" Spanish
                         style={styles.listbutton}>
@@ -139,8 +141,10 @@ const Drawer: React.FC = (props) => {
                             onPress={() => {
                                 setChecked('second');
                                 i18n.changeLanguage('es').then(() => {
-                                    I18nManager.forceRTL(true);
-                                    RNRestart.Restart();
+                                    if (I18nManager.isRTL === false) {
+                                        I18nManager.forceRTL(true);
+                                        RNRestart.Restart();
+                                    }
                                 });
                             }}
                             color="gray"
