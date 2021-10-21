@@ -13,8 +13,8 @@ export const useStyle = () => {
         StyleSheet.create({
             container: {
                 flex: 1,
-                justifyContent: 'center',
                 alignItems: 'center',
+                justifyContent: 'center',
                 backgroundColor: isDark ? 'black' : 'white',
             },
             title: {
