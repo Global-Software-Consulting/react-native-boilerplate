@@ -43,7 +43,6 @@ i18next
                 translation: de,
             },
         },
-        lng:I18nManager.isRTL ? 'en' : 'es',
 
     });
 export default i18next;

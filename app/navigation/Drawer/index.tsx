@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, TouchableOpacity, I18nManager } from 'react-native';
 import { DrawerItem, DrawerContentScrollView } from '@react-navigation/drawer';
 import { Avatar, Title, Text, List, RadioButton } from 'react-native-paper';
@@ -20,7 +20,11 @@ const Drawer: React.FC = (props) => {
     const theme = useTheme();
     const styles = useStyle();
     const navigation = useNavigation();
-
+    useEffect(() => {
+        if (i18n.language === 'en') setChecked('first');
+        else if (i18n.language === 'es') setChecked('second');
+        else if (i18n.language === 'de') setChecked('third');
+    }, []);
     return (
         <View style={styles.drawerContent}>
             <DrawerContentScrollView {...props}>
