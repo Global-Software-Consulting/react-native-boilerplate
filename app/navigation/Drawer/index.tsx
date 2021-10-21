@@ -106,7 +106,7 @@ const Drawer: React.FC = (props) => {
                             setChecked('first');
                             i18n.changeLanguage('en').then(() => {
                                 I18nManager.forceRTL(false);
-                                RNRestart.Restart();
+                                if (I18nManager.isRTL) RNRestart.Restart();
                             });
                         }} //Here I change the language to "en" English
                         style={styles.listbutton}>
@@ -117,7 +117,7 @@ const Drawer: React.FC = (props) => {
                                 setChecked('first');
                                 i18n.changeLanguage('en').then(() => {
                                     I18nManager.forceRTL(false);
-                                    RNRestart.Restart();
+                                    if (I18nManager.isRTL) RNRestart.Restart();
                                 });
                             }}
                             color="gray"
@@ -128,8 +128,10 @@ const Drawer: React.FC = (props) => {
                         onPress={() => {
                             setChecked('second');
                             i18n.changeLanguage('es').then(() => {
-                                I18nManager.forceRTL(true);
-                                RNRestart.Restart();
+                                if (I18nManager.isRTL === false) {
+                                    I18nManager.forceRTL(true);
+                                    RNRestart.Restart();
+                                }
                             });
                         }} //Here I change the language to "es" Spanish
                         style={styles.listbutton}>
@@ -139,8 +141,10 @@ const Drawer: React.FC = (props) => {
                             onPress={() => {
                                 setChecked('second');
                                 i18n.changeLanguage('es').then(() => {
-                                    I18nManager.forceRTL(true);
-                                    RNRestart.Restart();
+                                    if (I18nManager.isRTL === false) {
+                                        I18nManager.forceRTL(true);
+                                        RNRestart.Restart();
+                                    }
                                 });
                             }}
                             color="gray"
@@ -152,7 +156,7 @@ const Drawer: React.FC = (props) => {
                             setChecked('third');
                             i18n.changeLanguage('de').then(() => {
                                 I18nManager.forceRTL(false);
-                                RNRestart.Restart();
+                                if (I18nManager.isRTL) RNRestart.Restart();
                             });
                         }} //Here I change the language to "de" German
                         style={styles.listbutton}>
@@ -163,7 +167,7 @@ const Drawer: React.FC = (props) => {
                                 setChecked('third');
                                 i18n.changeLanguage('de').then(() => {
                                     I18nManager.forceRTL(false);
-                                    RNRestart.Restart();
+                                    if (I18nManager.isRTL) RNRestart.Restart();
                                 });
                             }}
                             color="gray"
