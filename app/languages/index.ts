@@ -1,10 +1,9 @@
-import React from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import i18next, { LanguageDetectorModule } from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import de from './de.json';
 import en from './en.json';
 import es from './sp.json';
-import de from './de.json';
 
 const LOCALE_PERSISTENCE_KEY = 'language';
 
