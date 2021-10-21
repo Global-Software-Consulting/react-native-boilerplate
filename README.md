@@ -20,7 +20,7 @@
 React native boiler plate by Global soft consulting provides opportunity to developers to quick start without wasting time on setting up basic stuff and configurations. This way, developers can save time and work more efficiently. Not only this, but typescript intergration along with lint and husky keeps the code clean; hence increasing quality of work. Given below are some of the major features of this boilerplate. 
 
 ## :star: Key Features
- * Global themeing with light & dark modes
+ * Global theming with light & dark modes
  * Splash screen.
  * React navigation 6 with multiple navigation stacks.
  * Multiple language support.

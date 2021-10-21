@@ -6666,13 +6666,14 @@ react-native-reanimated@^2.2.3:
     mockdate "^3.0.2"
     string-hash-64 "^1.0.3"
 
-react-native-restart@*, react-native-restart@^0.0.22:
+react-native-restart@*:
   version "0.0.22"
-<<<<<<< HEAD
-  resolved "https://registry.yarnpkg.com/react-native-restart/-/react-native-restart-0.0.22.tgz#81fcb7f31e35951d85410c68b9556acf3ab88705"
-=======
   resolved "https://registry.npmjs.org/react-native-restart/-/react-native-restart-0.0.22.tgz"
->>>>>>> b8950b9875c57d4f6925c0a88e4a1260eb1b2a91
+  integrity sha512-XwCqAMAKsO8yCM3xACPFKvkDQZe41lcavOuO0gUEu803IuTLtciualCq/qs83ryRDCDh1jkXYRqFjsGjLMCN3Q==
+
+react-native-restart@^0.0.22:
+  version "0.0.22"
+  resolved "https://registry.yarnpkg.com/react-native-restart/-/react-native-restart-0.0.22.tgz#81fcb7f31e35951d85410c68b9556acf3ab88705"
   integrity sha512-XwCqAMAKsO8yCM3xACPFKvkDQZe41lcavOuO0gUEu803IuTLtciualCq/qs83ryRDCDh1jkXYRqFjsGjLMCN3Q==
 
 react-native-safe-area-context@^3.3.2:
