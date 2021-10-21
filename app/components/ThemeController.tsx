@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-end',
         alignItems: 'center',
-        margin: windowHeight > windowWidth ? '5%' : '0.1%',
+        margin: windowHeight > windowWidth ? '2%' : '0.01%',
 
         // margin: 2,
     },
