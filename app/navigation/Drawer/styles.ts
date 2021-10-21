@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 
 export const useStyle = () => {
     const isDark = useSelector((state: RootState) => state.theme.isDark);
-    console.log('isDarkisDark', isDark);
 
     const styles = () =>
         StyleSheet.create({

@@ -224,6 +224,8 @@ PODS:
     - react-native-config/App (= 1.4.4)
   - react-native-config/App (1.4.4):
     - React-Core
+  - react-native-restart (0.0.22):
+    - React-Core
   - react-native-safe-area-context (3.3.2):
     - React-Core
   - react-native-splash-screen (3.2.0):
@@ -356,6 +358,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-config (from `../node_modules/react-native-config`)
+  - react-native-restart (from `../node_modules/react-native-restart`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-splash-screen (from `../node_modules/react-native-splash-screen`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
@@ -425,6 +428,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   react-native-config:
     :path: "../node_modules/react-native-config"
+  react-native-restart:
+    :path: "../node_modules/react-native-restart"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-splash-screen:
@@ -493,6 +498,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 43f2542aed3c26e42175b339f8d37fe3dd683765
   React-jsinspector: 41e58e5b8e3e0bf061fdf725b03f2144014a8fb0
   react-native-config: 72d948053a442779b3178fddd571e37f118ef606
+  react-native-restart: 733a51ad137f15b0f8dc34c4082e55af7da00979
   react-native-safe-area-context: 584dc04881deb49474363f3be89e4ca0e854c057
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
   React-perflogger: fd28ee1f2b5b150b00043f0301d96bd417fdc339

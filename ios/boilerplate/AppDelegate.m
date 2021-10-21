@@ -5,6 +5,7 @@
 #import <React/RCTRootView.h>
 #import "RNSplashScreen.h"
 #import "ReactNativeConfig.h"
+#import "React/RCTI18nUtil.h"
 #ifdef FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>
 #import <FlipperKitLayoutPlugin/FlipperKitLayoutPlugin.h>
@@ -50,6 +51,7 @@ static void InitializeFlipper(UIApplication *application) {
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   [RNSplashScreen show];
+  [[RCTI18nUtil sharedInstance] allowRTL:YES];
   return YES;
 }
 

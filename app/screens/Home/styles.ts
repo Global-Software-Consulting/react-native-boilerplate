@@ -7,14 +7,13 @@ import { useSelector } from 'react-redux';
 export const useStyle = () => {
     const { colors } = useTheme();
     const isDark = useSelector((state: RootState) => state.theme.isDark);
-    console.log('isDarkisDark', isDark);
 
     const styles = () =>
         StyleSheet.create({
             container: {
                 flex: 1,
-                justifyContent: 'center',
                 alignItems: 'center',
+                justifyContent: 'center',
                 backgroundColor: isDark ? 'black' : 'white',
             },
             title: {
