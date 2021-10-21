@@ -48,7 +48,7 @@ const Drawer: React.FC = (props) => {
                         />
                     )}
                     onPress={() => {
-                        navigation.navigate('Home');
+                        navigation.navigate('Home' as never);
                     }}
                     label={t('Home')}
                     activeTintColor="#2196f3"
@@ -72,7 +72,7 @@ const Drawer: React.FC = (props) => {
                     inactiveBackgroundColor="transparent"
                     labelStyle={{ color: theme.colors.primary }}
                     onPress={() => {
-                        navigation.navigate('Profile');
+                        navigation.navigate('Profile' as never);
                     }}
                 />
                 <DrawerItem
@@ -85,7 +85,7 @@ const Drawer: React.FC = (props) => {
                     )}
                     labelStyle={{ color: theme.colors.primary }}
                     onPress={() => {
-                        navigation.navigate('Chat');
+                        navigation.navigate('Chat' as never);
                     }}
                     label={t('Chat')}
                     activeTintColor="#2196f3"
@@ -99,7 +99,7 @@ const Drawer: React.FC = (props) => {
                 </View>
 
                 <List.Accordion
-                    theme={{ colors: theme.colors.primary }}
+                    theme={theme}
                     title={<Text style={styles.text}>{t('Languages')} </Text>}>
                     <TouchableOpacity
                         onPress={() => {
