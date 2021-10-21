@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
-import { RootState } from 'app/store/slice';
 import { useTheme } from 'react-native-paper';
 import React from 'react';
+import { RootState } from 'app/store/slice';
 import { useSelector } from 'react-redux';
 
 export const useStyle = () => {
@@ -12,8 +12,8 @@ export const useStyle = () => {
         StyleSheet.create({
             container: {
                 flex: 1,
-                alignItems: 'center',
                 justifyContent: 'center',
+                alignItems: 'center',
                 backgroundColor: isDark ? 'black' : 'white',
             },
             title: {

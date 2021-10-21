@@ -1,15 +1,17 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import i18next, { LanguageDetectorAsyncModule } from 'i18next';
+import i18next, { LanguageDetectorModule } from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import de from './de.json';
 import en from './en.json';
-import fr from './fr.json';
+import es from './sp.json';
+
 const LOCALE_PERSISTENCE_KEY = 'language';
 
-const languageDetector: LanguageDetectorAsyncModule = {
+const languageDetector: LanguageDetectorModule = {
     type: 'languageDetector',
     async: true,
-    detect: async (language: (key: string) => void) => {
-        const persistedLocale: string | null = await AsyncStorage.getItem(LOCALE_PERSISTENCE_KEY);
+    detect: async (language: string | readonly string[] | undefined | any) => {
+        const persistedLocale = await AsyncStorage.getItem(LOCALE_PERSISTENCE_KEY);
         if (!persistedLocale) {
             // Find best available language from the resource ones
 
@@ -19,7 +21,7 @@ const languageDetector: LanguageDetectorAsyncModule = {
         language(persistedLocale);
     },
     init: () => {},
-    cacheUserLanguage: (locale: string) => {
+    cacheUserLanguage: (locale) => {
         AsyncStorage.setItem(LOCALE_PERSISTENCE_KEY, locale);
     },
 };
@@ -28,13 +30,15 @@ i18next
     .use(languageDetector)
     .use(initReactI18next)
     .init({
-        // lng: "en",
         resources: {
             en: {
                 translation: en,
             },
-            fr: {
-                translation: fr,
+            es: {
+                translation: es,
+            },
+            de: {
+                translation: de,
             },
         },
     });
