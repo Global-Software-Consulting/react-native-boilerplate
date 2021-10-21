@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useDispatch, useSelector } from 'react-redux';
 import { Switch } from 'react-native-paper';
-
 import * as themeActions from 'app/store/slice/themeSlice';
 import { RootState } from 'app/store/slice';
 
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 const ThemeController: React.FC = () => {
     const isDark = useSelector((state: RootState) => state.theme.isDark);
     const dispatch = useDispatch();
@@ -27,7 +28,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-end',
         alignItems: 'center',
-        margin: 12,
+        margin: windowHeight > windowWidth ? '5%' : '0.1%',
+
+        // margin: 2,
     },
     icon: { marginLeft: 4 },
 });

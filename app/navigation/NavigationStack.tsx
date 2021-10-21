@@ -36,6 +36,7 @@ const AuthNavigator = () => {
                 headerTitleStyle: {
                     fontWeight: 'bold',
                 },
+                headerTitleAlign: 'center',
             }}>
             <Stack.Screen
                 name={t('Login')}
