@@ -41,6 +41,5 @@ i18next
                 translation: de,
             },
         },
-
     });
 export default i18next;
