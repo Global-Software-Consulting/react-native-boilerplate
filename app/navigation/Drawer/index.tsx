@@ -11,6 +11,7 @@ import {useStyle} from './styles';
 import {useTranslation} from 'react-i18next';
 import {useTheme} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
+
 // import i18n from "../../components/Languages/i18n";
 const Drawer: React.FC = props => {
   const [checked, setChecked] = React.useState('first');
