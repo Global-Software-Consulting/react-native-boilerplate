@@ -71,10 +71,10 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint . --ext .js,.jsx,.ts,.tsx  --fix",
-      "folderslint"
-    ]
+    "*.{json,md,html}": [
+      "prettier --write"
+    ],
+    "*.{ts,tsx}": "eslint . --ext .ts,.tsx  "
   },
   "resolutions": {
     "@types/react": "^18"

@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import {SafeAreaView, Text, View} from 'react-native';
 import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const App = () => {
@@ -16,7 +16,5 @@ const App = () => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default App;

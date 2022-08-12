@@ -3,7 +3,7 @@
  * Everything starts from the Entry-point
  */
 
-import Navigator from './navigation';
+import Navigator from 'app/navigation';
 import {persistor, store} from './store';
 import {RootState} from './store/slice';
 import React, {useEffect} from 'react';
