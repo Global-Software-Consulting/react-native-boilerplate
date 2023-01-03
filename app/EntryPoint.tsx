@@ -8,7 +8,7 @@ import {persistor, store} from './store';
 import {RootState} from './store/slice';
 import React, {useEffect} from 'react';
 import {ActivityIndicator, LogBox, View, Text} from 'react-native';
-import codePush from 'react-native-code-push';
+// import codePush from 'react-native-code-push';
 import {Provider as PaperProvider} from 'react-native-paper';
 import SplashScreen from 'react-native-splash-screen';
 import {Provider, useSelector} from 'react-redux';
@@ -34,15 +34,15 @@ const RootNavigation: React.FC = () => {
     </PaperProvider>
   );
 };
-const codePushOptions = {
-  updateDialog: false,
-  installMode: codePush.InstallMode.IMMEDIATE,
-};
+// const codePushOptions = {
+//   updateDialog: false,
+//   installMode: codePush.InstallMode.IMMEDIATE,
+// };
 
 const EntryPoint: React.FC = () => {
-  useEffect(() => {
-    codePush.sync({installMode: codePush.InstallMode.IMMEDIATE});
-  });
+  // useEffect(() => {
+  //   codePush.sync({installMode: codePush.InstallMode.IMMEDIATE});
+  // });
 
   const CustomFallback = (props: {error: Error; resetError: Function}) => (
     <View>
@@ -61,4 +61,4 @@ const EntryPoint: React.FC = () => {
     </Provider>
   );
 };
-export default codePush(codePushOptions)(EntryPoint);
+export default EntryPoint;
